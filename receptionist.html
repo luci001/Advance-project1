@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wellness welfare - Receptionist Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Wellness welfare</h1>
+    <h2>Receptionist Dashboard</h2>
+    <button onclick="logout()">Logout</button>
+    <h2>New Patient</h2>
+    <input type="text" id="patient-name" placeholder="Patient Name" required>
+    <input type="text" id="patient-age" placeholder="Patient Age" required>
+    <input type="text" id="patient-bp" placeholder="Patient BloodPressure" required>
+    <input type="text" id="patient-temp" placeholder="Patient Temperature(℃)" required>
+    <input type="text" id="patient-issue" placeholder="Patient Issue" required>
+
+    <button onclick="addPatient()">Add Patient</button>
+    <h2>Patient List</h2>
+    <div id="patient-list"></div>
+    <script src="app.js" type="module"></script>
+    <script>
+        // Check if the user is logged in
+        document.addEventListener("DOMContentLoaded", function () {
+            // Check for an authentication token in session storage
+            const authToken = sessionStorage.getItem("authToken");
+            
+            // If the token doesn't exist, redirect to the login page
+            if (!authToken) {
+                alert("You must be logged in to access this page.");
+                window.location.href = "/index.html"; // Redirect to your login page
+            }
+        });
+    </script>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+    <footer>
+        <p>&copy; 2024 Wellness welfare. All rights reserved.</p>
+    </footer>
+</body>
+</html>
